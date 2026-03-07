@@ -4,10 +4,10 @@ export const dummyResumeData = [
     {
         // ----------------------------------------------------- Resume 1 ------------------------------------------------------
         personal_info: {
-            full_name: "Alex Smith",
+            full_name: "Vivek Verma",
             email: "alex@example.com",
             phone: "0 123456789",
-            location: "NY, USA",
+            location: "New Delhi, India",
             linkedin: "https://www.linkedin.com",
             website: "https://www.example.com",
             profession: "Full Stack Developer",
@@ -15,7 +15,7 @@ export const dummyResumeData = [
         },
         _id: "68d2a31a1c4dd38875bb037e",
         userId: "68c180acdf1775dfd02c6d87",
-        title: "Alex's Resume",
+        title: "Vivek's Resume",
         public: true,
         professional_summary: "Highly analytical Data Analyst with 6 years of experience transforming complex datasets into actionable insights using SQL, Python, and advanced visualization tools. ",
         skills: ["JavaScript", "React JS", "Full Stack Development", "Git", "GitHub", "NextJS", "Express", "NodeJS", "TypeScript"],
@@ -87,10 +87,10 @@ export const dummyResumeData = [
     {
         // ----------------------------------------------------- Resume 2 ------------------------------------------------------
         personal_info: {
-            full_name: "Jordan Lee",
+            full_name: "Kriti Raj",
             email: "jordan.lee@example.com",
             phone: "0 987654321",
-            location: "San Francisco, CA, USA",
+            location: "Noida, UP",
             linkedin: "https://www.linkedin.com/in/jordanlee",
             website: "https://www.jordanlee.dev",
             profession: "Frontend Engineer",
@@ -98,7 +98,7 @@ export const dummyResumeData = [
         },
         _id: "78e3b42c2d5ff49286cc148f",
         userId: "78d2e0bdcf2886efg03e7e98",
-        title: "Jordan's Resume",
+        title: "Kriti's Resume",
         public: true,
         professional_summary: "Creative and detail-oriented Frontend Engineer with 5+ years of experience crafting responsive, user-centric web applications using React, Vue, and modern CSS frameworks.",
         skills: ["HTML5", "CSS3", "JavaScript", "React", "Vue.js", "SASS", "Tailwind CSS", "Figma", "Web Accessibility", "REST APIs"],
