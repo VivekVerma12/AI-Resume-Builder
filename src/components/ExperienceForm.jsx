@@ -23,7 +23,10 @@ const ExperienceForm = ({ data, onChange }) => {
 
     const updatedExperience = (index, field, value) => {
         const updated = [...data];
-        updated[index] = { ...updated[index] } = data.filter((_, i) => i !== index);
+        updated[index] = {
+            ...updated[index],
+            [field]: value
+        };
         onChange(updated);
     }
 
@@ -36,8 +39,8 @@ const ExperienceForm = ({ data, onChange }) => {
                     </h3>
                     <p className='text-sm text-gray-500'>Add your job experience here</p>
                 </div>
-                <button onClick={addExperience} className='flex items-center gap-2 px-3 py-1 text-sm bg-purple-100
-                text-purple-700 rounded hover:bg-purple-200 transition-colors'>
+                <button onClick={addExperience} className='flex items-center gap-2 px-3 py-1 text-sm bg-green-100
+                text-green-700 rounded-lg hover:bg-green-200 transition-colors'>
                     <Plus className='size-4' /> Add Experience
                 </button>
             </div>
