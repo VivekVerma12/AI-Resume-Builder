@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import api from '../configs/api';
 import { login } from '../app/features/authSlice';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -21,12 +22,12 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await api.post(`users/${state}`, formData);
+      console.log('data -> ', data)
       dispatch(login(data))
       localStorage.setItem('token', data.token);
       toast.success(data.message);
     } catch (error) {
-      console.error(error);
-      toast.error(data.message);
+      toast.error(error.response?.data?.message || "Login failed");
 
     }
 
