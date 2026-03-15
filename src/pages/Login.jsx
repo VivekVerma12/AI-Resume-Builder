@@ -22,7 +22,6 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await api.post(`users/${state}`, formData);
-      console.log('data -> ', data)
       dispatch(login(data))
       localStorage.setItem('token', data.token);
       toast.success(data.message);
