@@ -8,7 +8,6 @@ import { ArrowLeftIcon } from 'lucide-react';
 const Preview = () => {
 
   const { resumeId } = useParams();
-  console.log('resumeId -> ',resumeId)
 
   const [isLoading, setIsLoading] = useState(true)
   const [resumeData, setResumeData] = useState(null);
