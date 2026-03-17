@@ -12,6 +12,8 @@ import EducationForm from '../components/EducationForm';
 import ProjectForm from '../components/ProjectForm';
 import SkillsForm from '../components/SkillsForm';
 import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import api from '../configs/api';
 
 const ResumeBuilder = () => {
 
@@ -36,16 +38,20 @@ const ResumeBuilder = () => {
 
   const loadExistingResume = async () => {
     try {
-      const { data } = await api.get('resumes/get' + resumeId, { title, resumeText },
+      const response = await api.get('resumes/get/' + resumeId,
         {
           headers: { Authorization: token }
         }
       )
-      if (data.resume) {
-        setResumeData(data.resume)
-        document.title = data.resume.title;
+      const resume = response?.data?.data?.[0];
+
+      if (resume) {
+        setResumeData(resume);
+        document.title = resume.title;
       }
     } catch (error) {
+      console.error(error);
+
       toast.error(error?.response?.data?.message || error.message)
     }
   }
@@ -67,7 +73,20 @@ const ResumeBuilder = () => {
   }, [])
 
   const changeResumeVisibility = async () => {
-    setResumeData({ ...resumeData, public: !resumeData.public })
+    try {
+      const formData = new FormData();
+      formData.append("resumeId", resumeId);
+      formData.append("resumeData", JSON.stringify({ public: !resumeData.public }));
+      const { data } = await api.put('resumes/update', formData,
+        {
+          headers: { Authorization: token }
+        }
+      )
+      setResumeData({ ...resumeData, public: !resumeData.public })
+      toast.success('Resume updated.')
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error.message)
+    }
   }
 
   const handleShare = () => {
